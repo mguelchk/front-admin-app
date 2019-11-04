@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
 
-
+  muestraAdmin :boolean = true;
+  muestraApp :boolean = true;
   ngOnInit() {
   }
 

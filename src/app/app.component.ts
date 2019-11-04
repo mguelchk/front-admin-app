@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front-admin-app';
+  constructor() { 
+    localStorage.setItem('numeroCuentas', '0');
+  }
 }
+
+
+
+

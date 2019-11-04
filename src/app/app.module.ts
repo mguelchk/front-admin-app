@@ -8,6 +8,14 @@ import { APP_ROUTES } from './app.routes';
 import { PagesComponent } from './pages/pages.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
+import { PuestoComponent } from './pages/puesto/puesto.component';
+import { ClienteComponent } from './pages/clientes/cliente.component';
+import { VacanteComponent } from './pages/vacante/vacante.component';
+import { CandidatoComponent } from './pages/candidatos/candidato.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { EmpleoComponent } from './pages/empleo/empleo.component';
+import { BusquedaComponent } from './pages/empleo/busqueda.component';
+import { pageWebComponent } from './page-web/pageWeb.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +23,15 @@ import { RegisterComponent } from './login/register.component';
     DashboardComponent,
     PagesComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ClienteComponent,
+    PuestoComponent,
+    VacanteComponent,
+    CandidatoComponent,
+    PerfilComponent,
+    EmpleoComponent,
+    BusquedaComponent,
+    pageWebComponent
   ],
   imports: [
     BrowserModule,

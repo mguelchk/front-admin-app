@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
- 
+  muestraAdmin :boolean = true;
+  muestraApp :boolean = true;
 
   constructor(
   ) { }
