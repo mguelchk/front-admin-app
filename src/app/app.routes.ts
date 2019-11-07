@@ -30,10 +30,10 @@ const appRoutes: Routes = [
             { path: 'perfil', component: PerfilComponent},
             { path: 'empleo', component: EmpleoComponent},
             { path: 'busqueda', component: BusquedaComponent},
-            
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]
     },
+    { path: 'web', component: pageWebComponent},
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: '**', component: NopagefoundComponent }
