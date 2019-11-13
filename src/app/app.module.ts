@@ -10,6 +10,7 @@ import { BusquedaComponent } from './pages/empleo/busqueda.component';
 import { pageWebComponent } from './page-web/pageWeb.component';
 import { FormsModule } from '@angular/forms';
 import { PageModule } from './pages/pages.module';
+import { UsuarioService } from './services/usuarios/usuario.service';
 import { ServiceModule } from './services/service.module';
 
 @NgModule({
@@ -25,9 +26,10 @@ import { ServiceModule } from './services/service.module';
     SharedModule,
     APP_ROUTES,
     FormsModule,
-    PageModule,ServiceModule
+    PageModule,
+    ServiceModule
   ],
-  providers: [],
+  providers: [UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

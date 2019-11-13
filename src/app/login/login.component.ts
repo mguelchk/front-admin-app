@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario.model';
 
-//import swal from 'sweetalert';
+
+
+import { UsuarioService } from '../services/service.index';
 declare function init_plugins();
-declare const gapi: any;
 
 
 @Component({
@@ -15,9 +16,11 @@ declare const gapi: any;
 })
 export class LoginComponent implements OnInit {
 
-  
+  usuario : Usuario;
 
   constructor(
+    private _usuarioService : UsuarioService,
+    private router : Router
   ) { }
 
   ngOnInit() {
@@ -29,13 +32,14 @@ export class LoginComponent implements OnInit {
     if ( forma.invalid ) {
       return;
     }
-
-    let usuario = new Usuario(null,forma.value.nombre, forma.value.password,null );
-    //swal("Here's the title!", "...and here's the text!");
-   //this._usuarioService.login( usuario, forma.value.recuerdame )
-    //           .subscribe( correcto => this.router.navigate(['/dashboard'])  );
-
-    // this.router.navigate([ '/dashboard' ]);
+    this.usuario = new Usuario(null,forma.value.usuario, forma.value.password,null);
+    console.log(this.usuario);
+   this._usuarioService.login(this. usuario, forma.value.recuerdame )
+               .subscribe( resp => 
+                   {
+                     console.log(resp);
+                    this.router.navigate(['/dashboard']);
+               } );
 
   }
 }
