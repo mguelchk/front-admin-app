@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidatoComponent implements OnInit {
 
+
+  titulo :String;
   constructor() { }
 
   ngOnInit() {
+this.titulo = "Huevos a todos";
+  }
+  buscar(){
+
   }
 
 }
