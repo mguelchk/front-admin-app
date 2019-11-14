@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../models/usuario.model';
+import { SidebarService } from '../../services/shared/sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,13 +10,14 @@ export class SidebarComponent implements OnInit {
 
   muestraAdmin :boolean = true;
   muestraApp :boolean = true;
-  usuario :Usuario;
 
   constructor(
+    public _sidebar: SidebarService,
   ) { }
 
   ngOnInit() {
-   this.usuario = JSON.parse(sessionStorage.getItem('usuario'));
+    this._sidebar.cargarMenu();
+   
   }
 
 }

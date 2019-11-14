@@ -25,6 +25,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     init_plugins();
+    if (this._usuarioService.isAuthenticated()) {
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   ingresar( forma: NgForm) {
@@ -32,11 +35,12 @@ export class LoginComponent implements OnInit {
     if ( forma.invalid ) {
       return;
     }
-    this.usuario = new Usuario(null,forma.value.usuario, forma.value.password,null);
+    this.usuario = new Usuario(null, forma.value.usuario, forma.value.password, null, null);
     console.log(this.usuario);
    this._usuarioService.login(this. usuario, forma.value.recuerdame )
                .subscribe( resp => 
                    {
+                    this._usuarioService.guardarUsuario(resp.access_token);
                      console.log(resp);
                     this.router.navigate(['/dashboard']);
                } );

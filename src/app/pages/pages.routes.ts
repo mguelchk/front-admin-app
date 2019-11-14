@@ -9,6 +9,7 @@ import { CandidatoComponent } from './candidatos/candidato.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { EmpleoComponent } from './empleo/empleo.component';
 import { BusquedaComponent } from './empleo/busqueda.component';
+import { AuthGuard } from '../services/service.index';
 
 // Guards
 
@@ -17,6 +18,7 @@ const pagesRoutes: Routes = [
     {
         path: '',
         component: PagesComponent,
+        canActivate: [ AuthGuard ],
         children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'cliente', component: ClienteComponent },
