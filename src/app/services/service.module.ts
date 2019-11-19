@@ -1,11 +1,12 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidebarService } from './shared/sidebar.service';
 
 import {
   SharedService,
   UsuarioService,
+  SesionService,
+  SidebarService,
   AuthGuard
  } from './service.index';
 
@@ -19,6 +20,7 @@ import {
     SharedService,
     UsuarioService,
     SidebarService,
+    SesionService,
     AuthGuard
   ],
   declarations: []

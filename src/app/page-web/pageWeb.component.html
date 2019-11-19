@@ -52,11 +52,11 @@
                     <div class="col-lg-6">
                         <h1>¿Estas en busca de empleo?</h1>
                         <p class="mb-5">Entra a nuestro buscador </p>
-                        <form action="http://localhost:4200/#/busqueda">
-                            <div class="form-group d-flex">
-                                <input type="submit" class="btn btn-primary text-white px-4" value="Buscar Empleo">
-                            </div>
-                        </form>
+                        <div class="form-group d-flex">
+                            <button [routerLink]="['/vacantes-usuario']" class="btn btn-primary text-white px-4">
+                                Buscar Empleo
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

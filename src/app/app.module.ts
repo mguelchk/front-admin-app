@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { PageModule } from './pages/pages.module';
 import { UsuarioService } from './services/usuarios/usuario.service';
 import { ServiceModule } from './services/service.module';
+import { VacanteUsuarioComponent } from './page-web/vacantes/vacante.usuario.component';
+import { DetalleVacanteComponent } from './page-web/vacantes/detalle-vacante/detalle.vacante.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ServiceModule } from './services/service.module';
     LoginComponent,
     RegisterComponent,
     BusquedaComponent,
-    pageWebComponent
+    pageWebComponent,
+    VacanteUsuarioComponent,
+    DetalleVacanteComponent
   ],
   imports: [
     BrowserModule,

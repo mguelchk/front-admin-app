@@ -2,10 +2,10 @@ import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario.model';
-
-
-
+import swal from 'sweetalert2';
 import { UsuarioService } from '../services/service.index';
+import { SesionService } from '../services/session/session.service';
+
 declare function init_plugins();
 
 
@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _usuarioService : UsuarioService,
-    private router : Router
+    private router : Router,
+    private sesionService : SesionService
   ) { }
 
   ngOnInit() {
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
     if (this._usuarioService.isAuthenticated()) {
       this.router.navigate(['/dashboard']);
     }
+   
   }
 
   ingresar( forma: NgForm) {
@@ -38,12 +40,17 @@ export class LoginComponent implements OnInit {
     this.usuario = new Usuario(null, forma.value.usuario, forma.value.password, null, null);
     console.log(this.usuario);
    this._usuarioService.login(this. usuario, forma.value.recuerdame )
-               .subscribe( resp => 
-                   {
+          .subscribe( resp => {
                     this._usuarioService.guardarUsuario(resp.access_token);
-                     console.log(resp);
+                     if(this.sesionService.idVacante != null){
+                      this.router.navigate(['/detalle-vacante'+this.sesionService.idVacante])
+                     }
                     this.router.navigate(['/dashboard']);
-               } );
+               }, err => {
+                if (err.status == 401 || err.status == 401) {
+                  swal('Error Login', 'Usuario o clave incorrectas!', 'error');
+                }
+              } );
 
   }
 }
