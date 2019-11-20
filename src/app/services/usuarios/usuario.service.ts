@@ -89,7 +89,6 @@ export class UsuarioService {
   logout(): void {
     this.token = null;
     this.usuario = null;
-    sessionStorage.clear();
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('usuario');
   }

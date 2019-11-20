@@ -28,6 +28,6 @@ export class DetalleVacanteComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(){
-    this.sesionService.eliminarIdVacante();
+   // this.sesionService.eliminarIdVacante();
   }
 }
