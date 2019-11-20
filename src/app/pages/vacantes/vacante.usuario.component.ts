@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuarios/usuario.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/service.index';
 
 
 
@@ -13,13 +14,13 @@ import { Router } from '@angular/router';
 export class VacanteUsuarioComponent implements OnInit {
 
   constructor(
-    private _usuarioService : UsuarioService,
+    private authService : AuthService,
     private router : Router
   ) { }
  array : any[] = [1,2,3,4,5,6,7,8,9,10];
 
   ngOnInit() {
-    if (this._usuarioService.isAuthenticated()) {
+    if (this.authService.isAuthenticated()) {
       this.router.navigate(['/empleo']);
     }
   }

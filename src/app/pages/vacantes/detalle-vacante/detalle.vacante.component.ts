@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsuarioService } from '../../../services/usuarios/usuario.service';
+import { AuthService } from '../../../services/service.index';
 
 @Component({
   selector: 'app-detalle-vacante',
@@ -11,13 +11,13 @@ import { UsuarioService } from '../../../services/usuarios/usuario.service';
 export class DetalleVacanteComponent implements OnInit {
 
   constructor(
-    private _usuarioService : UsuarioService,
+    private authService : AuthService,
     private router : Router
   ) { }
  array : any[] = [1,2,3,4,5,6,7,8,9,10];
 
   ngOnInit() {
-    if (!this._usuarioService.isAuthenticated()) {
+    if (!this.authService.isAuthenticated()) {
       this.router.navigate(['/login']);
     }
   }

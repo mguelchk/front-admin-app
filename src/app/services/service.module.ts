@@ -7,6 +7,7 @@ import {
   UsuarioService,
   SesionService,
   SidebarService,
+  AuthService,
   AuthGuard
  } from './service.index';
 
@@ -21,6 +22,7 @@ import {
     UsuarioService,
     SidebarService,
     SesionService,
+    AuthService,
     AuthGuard
   ],
   declarations: []

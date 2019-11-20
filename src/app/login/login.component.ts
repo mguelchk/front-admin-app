@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario.model';
 import swal from 'sweetalert2';
-import { UsuarioService } from '../services/service.index';
+import {  AuthService } from '../services/service.index';
 import { SesionService } from '../services/session/session.service';
 
 declare function init_plugins();
@@ -19,14 +19,14 @@ export class LoginComponent implements OnInit {
   usuario : Usuario;
 
   constructor(
-    private _usuarioService : UsuarioService,
+    private authService : AuthService,
     private router : Router,
     private sesionService : SesionService
   ) { }
 
   ngOnInit() {
     init_plugins();
-    if (this._usuarioService.isAuthenticated()) {
+    if (this.authService.isAuthenticated()) {
       this.router.navigate(['/dashboard']);
     }
    
@@ -39,9 +39,9 @@ export class LoginComponent implements OnInit {
     }
     this.usuario = new Usuario(null, forma.value.usuario, forma.value.password, null, null);
     console.log(this.usuario);
-   this._usuarioService.login(this. usuario, forma.value.recuerdame )
+   this.authService.login(this. usuario, forma.value.recuerdame )
           .subscribe( resp => {
-                    this._usuarioService.guardarUsuario(resp.access_token);
+                    this.authService.guardarUsuario(resp.access_token);
                      if(this.sesionService.idVacante != null){
                       this.router.navigate(['/detalle-vacante'+this.sesionService.idVacante])
                      }
