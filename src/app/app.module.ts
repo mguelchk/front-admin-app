@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { BusquedaComponent } from './pages/empleo/busqueda.component';
 import { pageWebComponent } from './page-web/pageWeb.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageModule } from './pages/pages.module';
 import { UsuarioService } from './services/usuarios/usuario.service';
 import { ServiceModule } from './services/service.module';
@@ -31,7 +31,8 @@ import { DetalleVacanteComponent } from './page-web/vacantes/detalle-vacante/det
     APP_ROUTES,
     FormsModule,
     PageModule,
-    ServiceModule
+    ServiceModule,
+    ReactiveFormsModule
   ],
   providers: [UsuarioService],
   bootstrap: [AppComponent]

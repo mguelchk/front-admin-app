@@ -8,6 +8,7 @@ export class Usuario {
         public email: string,
         public roles: Rol[],
         public nombreUsuario?: string,
+        public telefono?: string,
 
     ) { }
 
