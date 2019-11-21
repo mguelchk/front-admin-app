@@ -46,7 +46,10 @@
                     </div>
                     <div class="form-group text-center p-b-20">
                         <div class="col-xs-12">
-                            <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light" type="submit">Registrarse</button>
+                            <button id="btn-registrarse" class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light" type="submit" [disabled]="registraUsuarioOn">
+                                <span class="spinner-border spinner-rgs" role="status" aria-hidden="true" [style.visibility]="registraUsuarioOn ? 'visible' : 'hidden'"></span>
+                                Registrarse
+                            </button>
                         </div>
                     </div>
                     <div class="form-group m-b-0">

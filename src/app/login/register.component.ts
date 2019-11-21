@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
-//import { Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario.model';
 import { UsuarioService } from '../services/service.index';
 
@@ -16,10 +16,11 @@ export class RegisterComponent implements OnInit {
 
   forma: FormGroup;
   usuario : Usuario;
-  
+  registraUsuarioOn : boolean;
 
   constructor(
-    private usuarioService : UsuarioService
+    private usuarioService : UsuarioService,
+    private router : Router,
   ) { }
 
   validaPassword( campo1: string, campo2: string) {
@@ -37,7 +38,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     init_plugins();
-
+    this.registraUsuarioOn = false;
     this.forma = new FormGroup({
       nombre: new FormControl(null, Validators.required),
       correo: new FormControl(null, [Validators.required, Validators.email]),
@@ -48,7 +49,7 @@ export class RegisterComponent implements OnInit {
     }, {validators: this.validaPassword('password','password2') });
 
     this.forma.setValue({
-      nombre: 'gilian',
+      nombre: 'gillian0',
       correo: 'gilliancosh@gmail.com',
       telefono: '2233441122',
       password: '123456',
@@ -81,12 +82,15 @@ export class RegisterComponent implements OnInit {
       this.forma.value.telefono);
       console.log(this.usuario);
 
+      this.registraUsuarioOn = true;
       this.usuarioService.crearUsuario(this.usuario).subscribe(response => {
-
+        
         if(response.ok){
           swal('Felicidades', 'Se envio la informacion a tu correo', 'success');
+          this.router.navigate(['/dashboard']);
         } else if (response.message){
           swal('Error', response.message, 'warning');
+          this.registraUsuarioOn = false;
         }
         console.log(response);
     });
