@@ -20,6 +20,9 @@ export class AuthGuard implements CanActivate {
         this.router.navigate(['/login']);
         return false;
       }
+      if (this.authService.usuario.recover) {
+        this.router.navigate(['/reset-password']);
+      }
       return true;
     }
     this.router.navigate(['/login']);

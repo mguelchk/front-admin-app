@@ -19,5 +19,10 @@ export class UsuarioService {
     let url = URL_SERVICIOS + '/api/recuperar';
     return this.http.post<any>( url, usuario );
   }
+
+  actualizarPassword(usuario : Usuario ){
+    let url = URL_SERVICIOS + '/api/actualizar';
+    return this.http.post<any>( url, usuario );
+  }
   
 }

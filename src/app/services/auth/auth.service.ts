@@ -22,7 +22,7 @@ export class AuthService {
       this.usuario = JSON.parse(sessionStorage.getItem('usuario')) as Usuario;
       return this.usuario;
     }
-    return new Usuario(null,null,null,null,null);
+    return new Usuario(null, null, null, null, null);
   }
 
   public get tokenSesion(): string {
@@ -35,7 +35,7 @@ export class AuthService {
     return null;
   }
 
-  login( usuario: Usuario, recordar: boolean = false ) {
+  login(usuario: Usuario, recordar: boolean = false) {
 
     const credenciales = btoa('angularapp' + ':' + '12345');
 
@@ -60,7 +60,7 @@ export class AuthService {
     this.guardarToken(accessToken);
     let payload = this.obtenerDatosToken(accessToken);
     this.usuario = payload.usuario;
-    if(this.usuario.roles != null){
+    if (this.usuario.roles != null) {
       this.menus = payload.usuario.roles[0].menus;
     }
     sessionStorage.setItem('usuario', JSON.stringify(payload.usuario));
@@ -85,7 +85,7 @@ export class AuthService {
     }
     return false;
   }
-
+  
   logout(): void {
     this.token = null;
     this.usuario = null;

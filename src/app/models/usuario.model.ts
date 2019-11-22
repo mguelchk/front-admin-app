@@ -9,6 +9,7 @@ export class Usuario {
         public roles: Rol[],
         public nombreUsuario?: string,
         public telefono?: string,
+        public recover?: boolean,
 
     ) { }
 
