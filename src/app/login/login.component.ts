@@ -50,8 +50,10 @@ export class LoginComponent implements OnInit {
                      }
                     this.router.navigate(['/dashboard']);
                }, err => {
-                if (err.status == 401 || err.status == 401) {
+                if (err.status == 401 || err.status == 400) {
                   swal('Error Login', 'Usuario o clave incorrectas!', 'error');
+                } else {
+                  swal('Error', 'Servicio no disponible', 'error');
                 }
               } );
 
@@ -67,7 +69,7 @@ export class LoginComponent implements OnInit {
     this.usuarioService.restablecerUsuario(this.usuario).subscribe(response => {
       if(response.ok){
         swal('Felicidades', 'Se envio la informacion a tu correo', 'success');
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/login']);
       } else if (response.message){
         swal('Error', response.message, 'warning');
       }
