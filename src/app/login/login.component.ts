@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
 
   ingresar( forma: NgForm) {
 
+    console.log(forma.invalid );
     if ( forma.invalid ) {
       return;
     }
@@ -74,6 +75,12 @@ export class LoginComponent implements OnInit {
         swal('Error', response.message, 'warning');
       }
       console.log(response);
+    }, err => {
+      if (err.status == 500) {
+        swal('Error ', 'Servicio no disponible', 'error');
+      } else {
+        swal('Error', 'Error desconocido', 'error');
+      }
     });
   }
 }
