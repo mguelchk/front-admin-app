@@ -6,6 +6,7 @@ import { SharedModule } from './shared/shared.module';
 import { APP_ROUTES } from './app.routes';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
+import { ResetPasswordComponent } from './login/reset.password.component';
 import { BusquedaComponent } from './pages/empleo/busqueda.component';
 import { pageWebComponent } from './page-web/pageWeb.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +21,7 @@ import { DetalleVacanteComponent } from './page-web/vacantes/detalle-vacante/det
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    ResetPasswordComponent,
     BusquedaComponent,
     pageWebComponent,
     VacanteUsuarioComponent,
