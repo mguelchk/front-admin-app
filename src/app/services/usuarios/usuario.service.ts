@@ -15,5 +15,9 @@ export class UsuarioService {
     let url = URL_SERVICIOS + '/api/usuario';
     return this.http.post<any>( url, usuario );
   }
+  restablecerUsuario(usuario : Usuario ){
+    let url = URL_SERVICIOS + '/api/recuperar';
+    return this.http.post<any>( url, usuario );
+  }
   
 }

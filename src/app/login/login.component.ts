@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario.model';
 import swal from 'sweetalert2';
-import {  AuthService } from '../services/service.index';
+import {  AuthService, UsuarioService } from '../services/service.index';
 import { SesionService } from '../services/session/session.service';
 
 declare function init_plugins();
@@ -17,15 +17,18 @@ declare function init_plugins();
 export class LoginComponent implements OnInit {
 
   usuario : Usuario;
+  isCollapsed: boolean;
 
   constructor(
     private authService : AuthService,
     private router : Router,
-    private sesionService : SesionService
+    private sesionService : SesionService,
+    private usuarioService : UsuarioService,
   ) { }
 
   ngOnInit() {
     init_plugins();
+    this.isCollapsed = true;
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/dashboard']);
     }
@@ -52,5 +55,23 @@ export class LoginComponent implements OnInit {
                 }
               } );
 
+  }
+
+  recoverPasword(forma: NgForm){
+    if ( forma.invalid ) {
+      return;
+    }
+    //console.log(forma.value.correo);
+    this.usuario = new Usuario(null, null, null, forma.value.correo, null);
+    console.log(this.usuario);
+    this.usuarioService.restablecerUsuario(this.usuario).subscribe(response => {
+      if(response.ok){
+        swal('Felicidades', 'Se envio la informacion a tu correo', 'success');
+        this.router.navigate(['/dashboard']);
+      } else if (response.message){
+        swal('Error', response.message, 'warning');
+      }
+      console.log(response);
+    });
   }
 }
