@@ -27,11 +27,13 @@ export class RegisterComponent implements OnInit {
     return ( group: FormGroup) => {
       let pass1 = group.controls[campo1].value;
       let pass2 = group.controls[campo2].value;
-      if ( pass1 === pass2 ){
-        return null;
+      if((pass1 === "") && (pass2 === "")){
+        return {validaPassword: true };
       }
-      return { 
-        validaPassword: true 
+      if ( pass1 === pass2 ){
+        return {validaPassword: false };
+      }
+      return {validaPassword: true 
       };
     };
   }
@@ -53,8 +55,8 @@ export class RegisterComponent implements OnInit {
       correo: 'gilliancosh@gmail.com',
       telefono: '2233441122',
       password: '123456',
-      password2: '123456',
-      terminos: true,
+      password2: null,
+      terminos: false,
     });
     // if(this._crearUsuario.isAuthenticated()){
     //   this.router.navigate(['/dashboard']);
