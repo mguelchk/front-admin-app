@@ -7,6 +7,9 @@ import {
   UsuarioService,
   SesionService,
   SidebarService,
+  EstadoService,
+  AreaService,
+  VacanteService,
   AuthService,
   AuthGuard
  } from './service.index';
@@ -22,6 +25,9 @@ import {
     UsuarioService,
     SidebarService,
     SesionService,
+    EstadoService,
+    AreaService,
+    VacanteService,
     AuthService,
     AuthGuard
   ],
