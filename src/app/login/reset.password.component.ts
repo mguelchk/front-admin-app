@@ -44,9 +44,7 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   cambiarPassword() {
-    if(this.forma.invalid){
-      return;
-    }
+
     this.usuario.email = this.usuarioBd.email;
     this.usuarioService.actualizarPassword(this.usuario).subscribe(response => {
 
