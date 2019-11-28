@@ -15,6 +15,9 @@ import { UsuarioService } from './services/usuarios/usuario.service';
 import { ServiceModule } from './services/service.module';
 import { VacanteUsuarioComponent } from './page-web/vacantes/vacante.usuario.component';
 import { DetalleVacanteComponent } from './page-web/vacantes/detalle-vacante/detalle.vacante.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { DetalleVacanteComponent } from './page-web/vacantes/detalle-vacante/det
     FormsModule,
     PageModule,
     ServiceModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AutocompleteLibModule,
+    NgxPaginationModule
   ],
   providers: [UsuarioService],
   bootstrap: [AppComponent]

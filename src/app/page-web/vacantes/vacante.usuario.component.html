@@ -70,17 +70,38 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Area</label>
-                                                <input type="text" id="idAreas" name="area" [(ngModel)]="area.nombre" (change)="buscarAreas()" class="form-control" placeholder="Oferta">
+                                                <label for="wlocation2"> Area: <span class="danger">*</span> </label>
+                                                <div class="ng-autocomplete">
+                                                    <ng-autocomplete [data]="areas" [searchKeyword]="keyword" (selected)='selectEvent($event, AREA)' (inputFocused)='onFocused($event, AREA)' (inputCleared)='onCleared($event, AREA)' (inputChanged)='onChangeSearch($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate"
+                                                        #autArea>
+                                                    </ng-autocomplete>
+
+                                                    <ng-template #itemTemplate let-item>
+                                                        <a [innerHTML]="item.nombre"></a>
+                                                    </ng-template>
+
+                                                    <ng-template #notFoundTemplate let-notFound>
+                                                        <div [innerHTML]="sinResultados"></div>
+                                                    </ng-template>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div>
-                                                <label for="wlocation2"> Estado :<span class="danger">*</span> </label>
-                                                <select class="select2 form-control custom-select" [(ngModel)]="estado.idEstado" id="idestados" name="estados" style="width: 100%; height:36px;">
-                                                    <option value="">Selecciona Estado</option>
-                                                    <option [value]="estado.idEstado" *ngFor="let estado of estados">{{estado.nombre}}</option>
-                                                </select>
+                                            <div class="form-group">
+                                                <label for="wlocation2"> Estado: <span class="danger">*</span> </label>
+                                                <div class="ng-autocomplete">
+                                                    <ng-autocomplete [data]="estados" [searchKeyword]="keyword" (selected)='selectEvent($event, ESTADO)' (inputFocused)='onFocused($event, ESTADO)' (inputCleared)='onCleared($event, ESTADO)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate"
+                                                        #autEstado>
+                                                    </ng-autocomplete>
+
+                                                    <ng-template #itemTemplate let-item>
+                                                        <a [innerHTML]="item.nombre"></a>
+                                                    </ng-template>
+
+                                                    <ng-template #notFoundTemplate let-notFound>
+                                                        <div [innerHTML]="sinResultados"></div>
+                                                    </ng-template>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -100,30 +121,37 @@
 
             <div id="vac" class="row">
                 <!-- .col -->
-                <div *ngFor="let item of array" class="col-xs-12 col-md-6 col-lg-6 col-xlg-4">
+                <div *ngFor="let vacante of vacantes | paginate: { itemsPerPage: 4, currentPage: p }" class="col-xs-12 col-md-6 col-lg-6 col-xlg-4">
                     <div class="card card-body card-vacante-usuario" [routerLink]="['/detalle-vacante']">
                         <div class="row">
-                            <div class="col-md-4 col-lg-3 text-center">
-                                <a [routerLink]="['/detalle-vacante']">
-                                    <h3 class="box-title m-b-0">Ingeniero Sistemas</h3>
-                                    <small>Full stack</small></a>
-
-                            </div>
-                            <div class="col-md-8 col-lg-9">
-                                <h3 class="box-title m-b-0">admin 360</h3> <small>xxxxx</small>
+                            <div class="col-md-12 col-lg-12">
+                                <h3 class="box-title m-b-0">{{vacante.area.nombre}}</h3>
+                                <h5 class="box-title m-b-0">{{vacante.sueldo}}</h5>
+                                <br/>
+                                <small class="box-title m-b-0">{{vacante.descripcionBreve}}</small>
+                                <h3>{{vacante.nombre}}</h3>
+                                <small>{{vacante.estado.nombre}}</small>
                                 <address>
-                                        Experiecia en srping 
-                                        <br/>
+                                        {{vacante.descripcion}}
+                                       <!-- <br/>
                                         JAVA 8 
                                         <br/>
                                         angular
                                         <br/>
                                         <abbr title="Phone">P:</abbr> (123) 456-7890
+                                        -->
                                     </address>
                             </div>
                         </div>
                     </div>
                 </div>
+
+            </div>
+            <div *ngIf="vacantes.length > 0" class="row">
+                <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+            </div>
+            <div *ngIf="vacantes.length == 0" class="row">
+                !!! NO SE ENCONTRARON COINCIDENCIAS !!!
             </div>
 
         </div>

@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService, EstadoService, AreaService, VacanteService } from '../../services/service.index';
 import { Estado } from '../../models/estado.model';
@@ -7,7 +7,6 @@ import swal from 'sweetalert2';
 import { Area } from '../../models/area.model';
 import { Vacante } from '../../models/vacante.model';
 
-declare var $: any;
 @Component({
   selector: 'app-vacante-usuario',
   templateUrl: './vacante.usuario.component.html',
@@ -15,12 +14,21 @@ declare var $: any;
 })
 export class VacanteUsuarioComponent implements OnInit {
 
+  @ViewChild("autArea", null) autArea;
+  @ViewChild("autEstado", null) autEstado;
+
   estados: Estado[];
-  areas: Area[];
-  vacantes: Vacante[];
+  areas: Area[] = [];
+  vacantes: Vacante[] = [];
   estado: Estado;
   area: Area;
-  vacante : Vacante;
+  vacante: Vacante;
+  keyword: string;
+  data: any[];
+  sinResultados: string = "Sin resultados";
+  p: number = 1;
+  AREA: number = 1;
+  ESTADO: number = 2;
 
   constructor(
     private authService: AuthService,
@@ -40,8 +48,77 @@ export class VacanteUsuarioComponent implements OnInit {
     this.vacante = new Vacante();
     this.estado = new Estado();
     this.vacante.estado = this.estado;
-    $(".select2").select2();
+    this.keyword = 'nombre';
 
+  }
+
+  selectEvent(item, tipo: number) {
+
+    switch (tipo) {
+      case this.AREA:
+        this.setArea(item);
+        break;
+      case this.ESTADO:
+        this.setEstado(item);
+        break;
+      default: console.log("No existe valores");
+    }
+
+  }
+
+  onChangeSearch(val: string) {
+    if (val.length > 3) {
+      this.buscarAreas(val);
+    }
+  }
+
+  onCleared(e, tipo: number) {
+    console.log("on cleared");
+    switch (tipo) {
+      case this.AREA:
+        this.removeArea();
+        break;
+      case this.ESTADO:
+        this.removeEstado();
+        break;
+      default: console.log("No existe valores");
+    }
+  }
+
+  onFocused(e, tipo: number) {
+    console.log(tipo);
+    switch (tipo) {
+      case this.AREA:
+        this.removeArea();
+        this.autArea.clear();
+        break;
+      case this.ESTADO:
+        this.removeEstado();
+        this.autEstado.clear();
+        break;
+      default: console.log("No existe valores");
+    }
+  }
+
+
+  setArea(item) {
+    this.area.nombre = item.nombre;
+    this.area.idArea = item.idArea;
+  }
+
+  setEstado(item) {
+    this.estado.nombre = item.nombre;
+    this.estado.idEstado = item.idEstado;
+  }
+
+  removeArea() {
+    this.area = new Area(null, null, null);
+    console.log(this.area);
+  }
+
+  removeEstado() {
+    this.estado = new Estado();
+    console.log(this.estado);
   }
 
   obtenerEsados() {
@@ -55,13 +132,12 @@ export class VacanteUsuarioComponent implements OnInit {
       }
     });
   }
-  buscarAreas() {
+  buscarAreas(nombre: string) {
 
-    this.areaService.obtenerAreasPorNombre(this.area.nombre).subscribe(resp => {
+    this.areaService.obtenerAreasPorNombre(nombre).subscribe(resp => {
 
       if (resp.ok) {
         this.areas = resp.response;
-        console.log(this.areas);
       } else if (resp.message) {
         swal('Error', resp.message, 'warning');
       }
@@ -70,15 +146,21 @@ export class VacanteUsuarioComponent implements OnInit {
   }
 
   buscarVacantes() {
-    /*this.vacanteService.obtenerVacantes(this.vacante).subscribe(resp => {
+
+    console.log(this.area);
+    console.log(this.estado);
+
+    this.vacante.estado = this.estado;
+    this.vacante.area = this.area;
+    this.vacanteService.obtenerVacantes(this.vacante).subscribe(resp => {
 
       if (resp.ok) {
         this.vacantes = resp.response;
-        console.log(this.vacantes);
       } else if (resp.message) {
         swal('Error', resp.message, 'warning');
       }
-    });*/
+    });
     console.log(this.estado);
   }
+
 }
