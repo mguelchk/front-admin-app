@@ -4,18 +4,18 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
-import { LoginComponent } from '../login/login.component';
-import { RegisterComponent } from '../login/register.component';
 import { ClienteComponent } from './clientes/cliente.component';
 import { PuestoComponent } from './puesto/puesto.component';
 import { VacanteComponent } from './vacante/vacante.component';
-import { CandidatoComponent } from './candidatos/candidato.component';
+import { PostulacionComponent } from './postulaciones/postulaciones.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import { EmpleoComponent } from './empleo/empleo.component';
-import { BusquedaComponent } from './empleo/busqueda.component';
-import { pageWebComponent } from '../page-web/pageWeb.component';
+import { EmpleoVacanteComponent } from './empleo-vacante/empleo.vacante.component';
 import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DetalleEmpleoVacanteComponent } from './empleo-vacante/detalle.empleo.vacante.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -25,9 +25,10 @@ import { PAGES_ROUTES } from './pages.routes';
     ClienteComponent,
     PuestoComponent,
     VacanteComponent,
-    CandidatoComponent,
+    PostulacionComponent,
     PerfilComponent,
-    EmpleoComponent
+    EmpleoVacanteComponent,
+    DetalleEmpleoVacanteComponent
   ],
   exports: [
     PagesComponent,
@@ -36,15 +37,19 @@ import { PAGES_ROUTES } from './pages.routes';
     ClienteComponent,
     PuestoComponent,
     VacanteComponent,
-    CandidatoComponent,
+    PostulacionComponent,
     PerfilComponent,
-    EmpleoComponent
+    EmpleoVacanteComponent,
+    DetalleEmpleoVacanteComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     SharedModule,
-    PAGES_ROUTES
+    PAGES_ROUTES,
+    AutocompleteLibModule,
+    NgxPaginationModule,
+    NgxSpinnerModule
   ],
   providers: [],
 })

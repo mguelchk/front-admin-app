@@ -13,5 +13,10 @@ export class AreaService {
     let url = URL_SERVICIOS + '/api/areas/'+nombreArea;
     return this.http.get<any>( url );
   }
+
+  obtenerAreas(){
+    let url = URL_SERVICIOS + '/api/areas';
+    return this.http.get<any>( url );
+  }
   
 }

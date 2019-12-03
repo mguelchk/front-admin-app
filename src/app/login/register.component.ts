@@ -58,9 +58,6 @@ export class RegisterComponent implements OnInit {
       password2: null,
       terminos: false,
     });
-    // if(this._crearUsuario.isAuthenticated()){
-    //   this.router.navigate(['/dashboard']);
-    // }
   }
 
   registrarUsuario() {
@@ -72,8 +69,6 @@ export class RegisterComponent implements OnInit {
       swal('Importante', 'Debe de aceptar todos los terminos', 'warning');
       return;
     }
-    //console.log('forma valida', this.forma.valid);
-    //console.log(this.forma.value);
     this.usuario = new Usuario(
       this.forma.value.nombre, 
       this.forma.value.nombre,  
@@ -94,7 +89,6 @@ export class RegisterComponent implements OnInit {
           swal('Error', response.message, 'warning');
           this.registraUsuarioOn = false;
         }
-        console.log(response);
     });
   }
 

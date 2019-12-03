@@ -6,6 +6,7 @@ import { Estado } from '../../models/estado.model';
 import swal from 'sweetalert2';
 import { Area } from '../../models/area.model';
 import { Vacante } from '../../models/vacante.model';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-vacante-usuario',
@@ -35,13 +36,13 @@ export class VacanteUsuarioComponent implements OnInit {
     private router: Router,
     private estadoService: EstadoService,
     private areaService: AreaService,
-    private vacanteService: VacanteService
+    private vacanteService: VacanteService,
+    public spinner: NgxSpinnerService
   ) { }
-  array: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   ngOnInit() {
     if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/empleo']);
+      this.router.navigate(['/empleo-vacante']);
     }
     this.obtenerEsados();
     this.area = new Area(null, null, null);
@@ -73,7 +74,6 @@ export class VacanteUsuarioComponent implements OnInit {
   }
 
   onCleared(e, tipo: number) {
-    console.log("on cleared");
     switch (tipo) {
       case this.AREA:
         this.removeArea();
@@ -113,22 +113,26 @@ export class VacanteUsuarioComponent implements OnInit {
 
   removeArea() {
     this.area = new Area(null, null, null);
-    console.log(this.area);
   }
 
   removeEstado() {
     this.estado = new Estado();
-    console.log(this.estado);
   }
 
   obtenerEsados() {
-
+    this.spinner.show();
     this.estadoService.obtenerEstados().subscribe(resp => {
-
       if (resp.ok) {
         this.estados = resp.response;
       } else if (resp.message) {
         swal('Error', resp.message, 'warning');
+      }
+      this.spinner.hide();
+    }, err => {
+      if (err.status == 500) {
+        swal('Error ', 'Servicio no disponible', 'error');
+      } else {
+        swal('Error', 'Error desconocido', 'error');
       }
     });
   }
@@ -139,17 +143,14 @@ export class VacanteUsuarioComponent implements OnInit {
       if (resp.ok) {
         this.areas = resp.response;
       } else if (resp.message) {
-        swal('Error', resp.message, 'warning');
+        swal('Error', resp.message, 'error');
       }
     });
 
   }
 
   buscarVacantes() {
-
-    console.log(this.area);
-    console.log(this.estado);
-
+    this.spinner.show();
     this.vacante.estado = this.estado;
     this.vacante.area = this.area;
     this.vacanteService.obtenerVacantes(this.vacante).subscribe(resp => {
@@ -157,10 +158,11 @@ export class VacanteUsuarioComponent implements OnInit {
       if (resp.ok) {
         this.vacantes = resp.response;
       } else if (resp.message) {
-        swal('Error', resp.message, 'warning');
+        swal('Error', resp.message, 'error');
       }
+      this.spinner.hide();
     });
-    console.log(this.estado);
+
   }
 
 }

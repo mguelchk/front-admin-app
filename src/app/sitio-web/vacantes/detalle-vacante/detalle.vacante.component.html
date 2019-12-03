@@ -1,12 +1,6 @@
 <div id="main-wrapper">
-    <!-- ============================================================== -->
-    <!-- Topbar header - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <header class="topbar" style="background: #ef5350">
         <nav class="navbar top-navbar navbar-expand-md navbar-light">
-            <!-- ============================================================== -->
-            <!-- Logo -->
-            <!-- ============================================================== -->
             <div class="navbar-header">
                 <a class="navbar-brand" [routerLink]="['/pagina-web']">
                     <!-- Logo icon --><b>
@@ -23,18 +17,13 @@
                              <!-- Light Logo text -->    
                              <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Logo -->
-            <!-- ============================================================== -->
             <div class="navbar-collapse">
 
             </div>
         </nav>
     </header>
     <aside class="left-sidebar">
-        <!-- Sidebar scroll-->
         <div class="scroll-sidebar">
-            <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
                 <ul aria-expanded="false">
                     <li class="nav-devider"></li>
@@ -44,16 +33,10 @@
                     </li>
                 </ul>
             </nav>
-            <!-- End Sidebar navigation -->
         </div>
-        <!-- End Sidebar scroll-->
     </aside>
     <div class="page-wrapper">
         <div class="container-fluid">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -63,7 +46,8 @@
                         <div class="card-body">
                             <form class="form-horizontal" role="form">
                                 <div class="form-body">
-                                    <h3 class="box-title">Desarrollador JAVA-WEB</h3>
+                                    <h3 class="box-title">{{vacante.area.nombre}}</h3>
+                                    <h4 class="box-title">{{vacante.nombre}}</h4>
                                     <hr class="m-t-0 m-b-40">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -126,7 +110,7 @@
                                             <div class="form-group row">
                                                 <label class="control-label text-right col-md-3">Direccion vacantes:</label>
                                                 <div class="col-md-9">
-                                                    <p class="form-control-static"> Av revolucion</p>
+                                                    <p class="form-control-static"> {{vacante.estado.nombre}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -145,7 +129,7 @@
                                             <div class="form-group row">
                                                 <label class="control-label text-right col-md-3">Estado:</label>
                                                 <div class="col-md-9">
-                                                    <p class="form-control-static"> CDMX </p>
+                                                    <p class="form-control-static">{{vacante.estado.nombre}}</p>
                                                 </div>
                                             </div>
                                         </div>

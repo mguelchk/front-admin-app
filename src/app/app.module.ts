@@ -7,17 +7,17 @@ import { APP_ROUTES } from './app.routes';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { ResetPasswordComponent } from './login/reset.password.component';
-import { BusquedaComponent } from './pages/empleo/busqueda.component';
-import { pageWebComponent } from './page-web/pageWeb.component';
+import { SitioWebComponent } from './sitio-web/sitio.web.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageModule } from './pages/pages.module';
 import { UsuarioService } from './services/usuarios/usuario.service';
 import { ServiceModule } from './services/service.module';
-import { VacanteUsuarioComponent } from './page-web/vacantes/vacante.usuario.component';
-import { DetalleVacanteComponent } from './page-web/vacantes/detalle-vacante/detalle.vacante.component';
+import { VacanteUsuarioComponent } from './sitio-web/vacantes/vacante.usuario.component';
+import { DetalleVacanteComponent } from './sitio-web/vacantes/detalle-vacante/detalle.vacante.component';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSpinnerModule } from "ngx-spinner";
 
-import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,7 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
     LoginComponent,
     RegisterComponent,
     ResetPasswordComponent,
-    BusquedaComponent,
-    pageWebComponent,
+    SitioWebComponent,
     VacanteUsuarioComponent,
     DetalleVacanteComponent
   ],
@@ -39,7 +38,8 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
     ServiceModule,
     ReactiveFormsModule,
     AutocompleteLibModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxSpinnerModule
   ],
   providers: [UsuarioService],
   bootstrap: [AppComponent]

@@ -11,6 +11,7 @@ import {
   AreaService,
   VacanteService,
   AuthService,
+  PostulacionService,
   AuthGuard
  } from './service.index';
 
@@ -29,6 +30,7 @@ import {
     AreaService,
     VacanteService,
     AuthService,
+    PostulacionService,
     AuthGuard
   ],
   declarations: []

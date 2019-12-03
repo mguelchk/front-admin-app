@@ -11,7 +11,6 @@ export class SesionService {
   ) { }
 
   agregarIdPaginaVacante(idVacante : string){
-    console.log(idVacante);
     this.idVacante = idVacante
     sessionStorage.setItem("vacante",idVacante);
   } 
@@ -19,6 +18,11 @@ export class SesionService {
   eliminarIdVacante(){
     this.idVacante = null;
     sessionStorage.removeItem("vacante");
+  }
+
+  obtenerIdVacante(){
+    
+    this.idVacante = sessionStorage.getItem("vacante");
   }
   
 

@@ -5,10 +5,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClienteComponent } from './clientes/cliente.component';
 import { PuestoComponent } from './puesto/puesto.component';
 import { VacanteComponent } from './vacante/vacante.component';
-import { CandidatoComponent } from './candidatos/candidato.component';
+import { PostulacionComponent } from './postulaciones/postulaciones.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import { EmpleoComponent } from './empleo/empleo.component';
-import { BusquedaComponent } from './empleo/busqueda.component';
+import { EmpleoVacanteComponent } from './empleo-vacante/empleo.vacante.component';
+import { DetalleEmpleoVacanteComponent } from './empleo-vacante/detalle.empleo.vacante.component';
 import { AuthGuard } from '../services/service.index';
 
 // Guards
@@ -24,10 +24,10 @@ const pagesRoutes: Routes = [
             { path: 'cliente', component: ClienteComponent },
             { path: 'puesto', component: PuestoComponent },
             { path: 'vacante', component: VacanteComponent },
-            { path: 'candidato', component: CandidatoComponent },
+            { path: 'postulaciones', component: PostulacionComponent },
             { path: 'perfil', component: PerfilComponent},
-            { path: 'empleo', component: EmpleoComponent},
-            { path: 'busqueda', component: BusquedaComponent},
+            { path: 'empleo-vacante', component: EmpleoVacanteComponent},
+            { path: 'detalle-empleo-vacante/:idVacante', component: DetalleEmpleoVacanteComponent},
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]
     },

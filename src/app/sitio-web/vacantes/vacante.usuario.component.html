@@ -1,12 +1,6 @@
 <div id="main-wrapper">
-    <!-- ============================================================== -->
-    <!-- Topbar header - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <header class="topbar" style="background: #ef5350">
         <nav class="navbar top-navbar navbar-expand-md navbar-light">
-            <!-- ============================================================== -->
-            <!-- Logo -->
-            <!-- ============================================================== -->
             <div class="navbar-header">
                 <a class="navbar-brand" [routerLink]="['/pagina-web']">
                     <!-- Logo icon --><b>
@@ -23,43 +17,25 @@
                              <!-- Light Logo text -->    
                              <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Logo -->
-            <!-- ============================================================== -->
             <div class="navbar-collapse">
 
             </div>
         </nav>
     </header>
     <aside class="left-sidebar">
-        <!-- Sidebar scroll-->
         <div class="scroll-sidebar">
-            <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
                 <ul aria-expanded="false">
                     <li class="nav-devider"></li>
                     <li class="nav-small-cap">PERSONAL</li>
                 </ul>
             </nav>
-            <!-- End Sidebar navigation -->
         </div>
-        <!-- End Sidebar scroll-->
     </aside>
-    <!-- ============================================================== -->
-    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper  -->
-    <!-- ============================================================== -->
+
     <div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
         <div class="container-fluid">
-
-
-
-            <div class="row" id="validation">
+            <div class="row">
                 <div class="col-12">
                     <div class="card wizard-content">
                         <div class="card-body">
@@ -119,10 +95,9 @@
             </div>
 
 
-            <div id="vac" class="row">
-                <!-- .col -->
+            <div class="row">
                 <div *ngFor="let vacante of vacantes | paginate: { itemsPerPage: 4, currentPage: p }" class="col-xs-12 col-md-6 col-lg-6 col-xlg-4">
-                    <div class="card card-body card-vacante-usuario" [routerLink]="['/detalle-vacante']">
+                    <div class="card card-body card-vacante-usuario" [routerLink]="['/detalle-vacante',vacante.idVacante]">
                         <div class="row">
                             <div class="col-md-12 col-lg-12">
                                 <h3 class="box-title m-b-0">{{vacante.area.nombre}}</h3>
@@ -150,23 +125,12 @@
             <div *ngIf="vacantes.length > 0" class="row">
                 <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
             </div>
-            <div *ngIf="vacantes.length == 0" class="row">
+
+            <div *ngIf="vacantes.length === 0" class="row">
                 !!! NO SE ENCONTRARON COINCIDENCIAS !!!
             </div>
 
         </div>
-        <!-- ============================================================== -->
-        <!-- End Container fluid  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <footer class="footer"> </footer>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
+        <ngx-spinner></ngx-spinner>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
 </div>

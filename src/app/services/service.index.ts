@@ -1,3 +1,4 @@
+export { PostulacionService } from './postulacion/postulacion.service';
 export { VacanteService } from './vacantes/estado.service';
 export { AreaService } from './areas/estado.service';
 export { EstadoService } from './estados/estado.service';
