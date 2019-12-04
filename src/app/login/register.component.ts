@@ -61,9 +61,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registrarUsuario() {
-    if(this.forma.invalid){
-      return;
-    }
+    
     if(!this.forma.value.terminos){
       console.log("Debe aceptar terminos");
       swal('Importante', 'Debe de aceptar todos los terminos', 'warning');

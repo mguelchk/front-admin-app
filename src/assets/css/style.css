@@ -8249,3 +8249,12 @@ File: scss
 .ng-autocomplete {
     width: 100% !important;
 }
+
+.a-regresar {
+    color: #687384;
+    font-weight: 500;
+}
+
+.a-regresar:hover {
+    color: #ef5350;
+}
