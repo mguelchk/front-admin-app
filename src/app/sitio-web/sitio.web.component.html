@@ -26,16 +26,16 @@
 
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                             <li>
-                                <a href="#home-section" class="nav-link">Inicio</a>
+                                <a href="#home-section" class="nav-link" [ngClass]="{'active': inicioActivo}" (click)="activaBoton('i')">Inicio</a>
                             </li>
                             <li>
-                                <a href="#services-section" class="nav-link">Servicios</a>
+                                <a href="#services-section" class="nav-link" [ngClass]="{'active': servicioActivo}" (click)="activaBoton('s')">Servicios</a>
                             </li>
                             <li>
-                                <a href="#team-section" class="nav-link">Nosotros</a>
+                                <a href="#team-section" class="nav-link" [ngClass]="{'active': nosotrosActivo}" (click)="activaBoton('n')">Nosotros</a>
                             </li>
                             <li>
-                                <a href="#contact-section" class="nav-link">Contacto</a>
+                                <a href="#contact-section" class="nav-link" [ngClass]="{'active': contactoActivo}" (click)="activaBoton('c')">Contacto</a>
                             </li>
                         </ul>
                     </nav>
