@@ -57,7 +57,7 @@ export class DetalleEmpleoVacanteComponent implements OnInit {
 
   obtenerVacante(idVacante: number) {
     this.spinner.show();
-    this.vacanteService.obtenerVacante(idVacante).subscribe(resp => {
+    this.vacanteService.obtenerVacante(idVacante, this.AuthService.usuario.idUsuario).subscribe(resp => {
 
       if (resp.ok) {
         this.vacante = resp.response;

@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
               this.sesionService.eliminarIdVacante();
               this.router.navigate(['/detalle-empleo-vacante', idVacante]);
             } else {
-              this.router.navigate(['/dashboard']);
+              this.router.navigate(['/empleo-vacante']);
             }
           } else if ((this.usuarioDb.roles[0].nombre == "ROLE_ADMIN")) {
             this.router.navigate(['/postulaciones']);

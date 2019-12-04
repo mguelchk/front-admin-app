@@ -22,7 +22,7 @@ export class DetalleVacanteComponent implements OnInit {
     private sesionService: SesionService,
     private activatedRoute: ActivatedRoute,
     private vacanteService: VacanteService,
-    public spinner : NgxSpinnerService
+    public spinner: NgxSpinnerService
   ) {
     this.vacante = new Vacante();
     this.vacante.nombre = null;
@@ -30,24 +30,24 @@ export class DetalleVacanteComponent implements OnInit {
 
       let idVacante = params['idVacante'];
       this.obtenerVacante(idVacante);
-     
+
     });
   }
 
   ngOnInit() {
-    
+
   }
 
   aplicarVacante() {
 
-    this.sesionService.agregarIdPaginaVacante(""+this.vacante.idVacante);
+    this.sesionService.agregarIdPaginaVacante("" + this.vacante.idVacante);
     this.router.navigate(['/dashboard']);
 
   }
 
   obtenerVacante(idVacante: number) {
     this.spinner.show();
-    this.vacanteService.obtenerVacante(idVacante).subscribe(resp => {
+    this.vacanteService.obtenerVacante(idVacante, 0).subscribe(resp => {
 
       if (resp.ok) {
         this.vacante = resp.response;

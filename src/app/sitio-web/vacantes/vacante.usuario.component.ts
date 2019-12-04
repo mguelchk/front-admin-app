@@ -68,7 +68,7 @@ export class VacanteUsuarioComponent implements OnInit {
   }
 
   onChangeSearch(val: string) {
-    if (val.length > 3) {
+    if (val.length > 2) {
       this.buscarAreas(val);
     }
   }

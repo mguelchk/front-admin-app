@@ -15,8 +15,8 @@ export class VacanteService {
     return this.http.post<any>(url, vacante);
   }
 
-  obtenerVacante(idVacante: number) {
-    let url = URL_SERVICIOS + '/api/vacantes/' + idVacante;
+  obtenerVacante(idVacante: number, idUsuario: number) {
+    let url = URL_SERVICIOS + '/api/vacantes?idVacante=' + idVacante+"&idUsuario="+idUsuario;
     return this.http.get<any>(url);
   }
 

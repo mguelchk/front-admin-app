@@ -22,6 +22,7 @@ export class Vacante {
     public rangoEdad: string;
     public tipoLicencia: string;
     public discapacidad: string;
+    public vacantePostulada : boolean;
 
     constructor(
 
