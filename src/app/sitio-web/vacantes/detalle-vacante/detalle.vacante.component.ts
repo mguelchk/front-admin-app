@@ -51,6 +51,7 @@ export class DetalleVacanteComponent implements OnInit {
 
       if (resp.ok) {
         this.vacante = resp.response;
+        console.log(this.vacante);
       } else if (resp.message) {
         swal('Error', resp.message, 'warning');
       }
