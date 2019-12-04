@@ -129,11 +129,8 @@ export class VacanteUsuarioComponent implements OnInit {
       }
       this.spinner.hide();
     }, err => {
-      if (err.status == 500) {
-        swal('Error ', 'Servicio no disponible', 'error');
-      } else {
-        swal('Error', 'Error desconocido', 'error');
-      }
+      swal('Error ', 'Servicio no disponible', 'error');
+      this.spinner.hide();
     });
   }
   buscarAreas(nombre: string) {
@@ -145,6 +142,9 @@ export class VacanteUsuarioComponent implements OnInit {
       } else if (resp.message) {
         swal('Error', resp.message, 'error');
       }
+    }, err => {
+      swal('Error ', 'Servicio no disponible', 'error');
+      this.spinner.hide();
     });
 
   }
@@ -160,6 +160,9 @@ export class VacanteUsuarioComponent implements OnInit {
       } else if (resp.message) {
         swal('Error', resp.message, 'error');
       }
+      this.spinner.hide();
+    }, err => {
+      swal('Error ', 'Servicio no disponible', 'error');
       this.spinner.hide();
     });
 

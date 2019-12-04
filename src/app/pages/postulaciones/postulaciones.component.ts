@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Area } from '../../models/area.model';
-import { AuthService, EstadoService, AreaService, PostulacionService } from 'src/app/services/service.index';
-import { Router } from '@angular/router';
+
 import swal from 'sweetalert2';
 import { Cliente } from '../../models/cliente.model';
 import { Postulacion } from '../../models/postulacion.model';
 import { NgxSpinnerService } from "ngx-spinner";
+import { AreaService, PostulacionService } from '../../services/service.index';
 
 @Component({
   selector: 'app-candidato',
@@ -22,7 +22,6 @@ export class PostulacionComponent implements OnInit {
   p: number = 1;
 
   constructor(
-    private authService: AuthService,
     private areaService: AreaService,
     private postulacionService: PostulacionService,
     public spinner: NgxSpinnerService
