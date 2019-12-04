@@ -8245,3 +8245,7 @@ File: scss
         padding-bottom: 30px !important;
     }
 }
+
+.ng-autocomplete {
+    width: 100% !important;
+}
