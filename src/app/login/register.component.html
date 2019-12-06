@@ -39,14 +39,14 @@
                     <div class="form-group row">
                         <div class="col-md-12">
                             <div class="checkbox checkbox-success p-t-0">
-                                <input formControlName="terminos" name="terminos" id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
-                                <label for="checkbox-signup"> Acepto todos los <a href="javascript:void(0)">Terminos</a></label>
+                                <input formControlName="terminos" name="terminos" id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-admin-red">
+                                <label for="checkbox-signup"> Acepto todos los <a href="javascript:void(0)" class="a-text-admin ">Terminos</a></label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group text-center p-b-20">
                         <div class="col-xs-12">
-                            <button id="btn-registrarse" class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light" type="submit" [disabled]="registraUsuarioOn">
+                            <button id="btn-registrarse" class="btn btn-info btn-lg btn-block btn-rounded btn-rojo-admin text-uppercase waves-effect waves-light" type="submit" [disabled]="registraUsuarioOn">
                                 <span class="spinner-border spinner-rgs" role="status" aria-hidden="true" [style.visibility]="registraUsuarioOn ? 'visible' : 'hidden'"></span>
                                 Registrarse
                             </button>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
-                            ¿Ya tienes una cuenta? <a [routerLink]="['/login']" class="text-info m-l-5"><b>Inicia Sesion</b></a>
+                            ¿Ya tienes una cuenta? <a [routerLink]="['/login']" class="text-info m-l-5"><b class="a-text-admin ">Inicia Sesion</b></a>
                         </div>
                     </div>
                 </form>
