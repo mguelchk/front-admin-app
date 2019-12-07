@@ -47,6 +47,7 @@ export class DetalleEmpleoVacanteComponent implements OnInit {
 
       if (resp.ok) {
         this.postulacion = resp.response;
+        this.vacante = this.postulacion.vacante;
         swal('Exito', resp.message, 'success');
       } else if (resp.message) {
         swal('Error', resp.message, 'warning');

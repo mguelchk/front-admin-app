@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarService } from '../../services/shared/sidebar.service';
+import { Menu } from '../../models/menu.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,14 +9,13 @@ import { SidebarService } from '../../services/shared/sidebar.service';
 })
 export class SidebarComponent implements OnInit {
 
-  muestraAdmin :boolean = true;
-  muestraApp :boolean = true;
-
+  menus = Menu;
   constructor(
     public _sidebar: SidebarService,
   ) { }
 
   ngOnInit() {
+    
     this._sidebar.cargarMenu();
    
   }

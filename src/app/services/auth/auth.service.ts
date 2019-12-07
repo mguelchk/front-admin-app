@@ -48,7 +48,6 @@ export class AuthService {
     params.set('grant_type', 'password');
     params.set('username', usuario.usuario);
     params.set('password', usuario.password);
-    console.log(params.toString());
 
     let url = URL_SERVICIOS + '/oauth/token';
 
@@ -60,9 +59,6 @@ export class AuthService {
     this.guardarToken(accessToken);
     let payload = this.obtenerDatosToken(accessToken);
     this.usuario = payload.usuario;
-    if (this.usuario.roles != null) {
-      this.menus = payload.usuario.roles[0].menus;
-    }
     sessionStorage.setItem('usuario', JSON.stringify(payload.usuario));
   }
 
@@ -78,14 +74,15 @@ export class AuthService {
     return null;
   }
 
+
   isAuthenticated(): boolean {
-    let payload = this.obtenerDatosToken(this.token);
+    let payload = this.obtenerDatosToken(this.tokenSesion);
     if (payload != null && payload.user_name && payload.user_name.length > 0) {
       return true;
     }
     return false;
   }
-  
+
   logout(): void {
     this.token = null;
     this.usuario = null;

@@ -1,6 +1,7 @@
+export { ModalAreaService } from './modal/areas/modal.area.service';
+export { AreaService } from './areas/area.service';
 export { PostulacionService } from './postulacion/postulacion.service';
 export { VacanteService } from './vacantes/estado.service';
-export { AreaService } from './areas/estado.service';
 export { EstadoService } from './estados/estado.service';
 export { AuthService } from './auth/auth.service';
 export { SidebarService } from './shared/sidebar.service';

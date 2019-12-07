@@ -17,6 +17,7 @@ export class SitioWebComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log("sejecuta sitio web");
   }
   
   activaBoton(boton:String){

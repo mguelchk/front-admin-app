@@ -28,6 +28,7 @@ export class EmpleoVacanteComponent implements OnInit {
   p: number = 1;
   AREA: number = 1;
   ESTADO: number = 2;
+  muestraMsg: boolean = false;
 
   constructor(
     private estadoService: EstadoService,
@@ -148,6 +149,7 @@ export class EmpleoVacanteComponent implements OnInit {
       } else if (resp.message) {
         swal('Error', resp.message, 'warning');
       }
+      this.muestraMsg = this.vacantes.length ===0 ;
       this.spinner.hide();
     });
     

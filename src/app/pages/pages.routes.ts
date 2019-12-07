@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClienteComponent } from './clientes/cliente.component';
-import { PuestoComponent } from './puesto/puesto.component';
+import { AreaComponent } from './area/area.component';
 import { VacanteComponent } from './vacante/vacante.component';
 import { PostulacionComponent } from './postulaciones/postulaciones.component';
 import { PerfilComponent } from './perfil/perfil.component';
@@ -22,7 +22,7 @@ const pagesRoutes: Routes = [
         children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'cliente', component: ClienteComponent },
-            { path: 'puesto', component: PuestoComponent },
+            { path: 'area', component: AreaComponent },
             { path: 'vacante', component: VacanteComponent },
             { path: 'postulaciones', component: PostulacionComponent },
             { path: 'perfil', component: PerfilComponent},

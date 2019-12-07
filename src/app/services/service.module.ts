@@ -12,7 +12,8 @@ import {
   VacanteService,
   AuthService,
   PostulacionService,
-  AuthGuard
+  AuthGuard,
+  ModalAreaService
  } from './service.index';
 
 
@@ -31,7 +32,8 @@ import {
     VacanteService,
     AuthService,
     PostulacionService,
-    AuthGuard
+    AuthGuard,
+    ModalAreaService
   ],
   declarations: []
 })
