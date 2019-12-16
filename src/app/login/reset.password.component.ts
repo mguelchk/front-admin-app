@@ -36,7 +36,7 @@ export class ResetPasswordComponent implements OnInit {
     }
     init_plugins();
     this.usuario = new Usuario(null, null, null, null, null);
-    this.usuarioBd = this.authService.usuario;
+    this.usuarioBd = this.authService.usuarioSesion;
     this.forma = new FormGroup({
       password: new FormControl(null, Validators.required),
       password2: new FormControl(null, Validators.required),
@@ -50,8 +50,10 @@ export class ResetPasswordComponent implements OnInit {
     this.usuarioService.actualizarPassword(this.usuario).subscribe(response => {
 
       if (response.ok) {
+        this.usuarioBd  = this.authService.usuarioSesion;
+        this.usuarioBd.recover = false;
+        this.authService.actualizarUsuario(this.usuarioBd);
         swal('Felicidades', response.message, 'success');
-        this.authService.usuario.recover = false;
         this.router.navigate(['/dashboard']);
       } else if (response.message) {
         swal('Error', response.message, 'warning');

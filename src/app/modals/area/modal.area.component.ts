@@ -14,9 +14,9 @@ export class ModalAreaComponent implements OnInit {
 
   @Input() area: Area;
   constructor(
-    private modalAreaService: ModalAreaService,
-    private areaService: AreaService,
-    private spinner: NgxSpinnerService
+    public modalAreaService: ModalAreaService,
+    public areaService: AreaService,
+    public spinner: NgxSpinnerService
   ) {
 
   }
