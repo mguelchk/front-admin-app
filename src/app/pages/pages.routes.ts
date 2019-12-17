@@ -28,7 +28,7 @@ const pagesRoutes: Routes = [
             { path: 'perfil', component: PerfilComponent},
             { path: 'empleo-vacante', component: EmpleoVacanteComponent},
             { path: 'detalle-empleo-vacante/:idVacante', component: DetalleEmpleoVacanteComponent},
-            { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+            { path: '', redirectTo: '/pagina-web', pathMatch: 'full' }
         ]
     },
 ];
