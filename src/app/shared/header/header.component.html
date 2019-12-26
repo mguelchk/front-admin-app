@@ -1,36 +1,24 @@
 <header class="topbar">
     <nav class="navbar top-navbar navbar-expand-md navbar-light">
-        <!-- ============================================================== -->
-        <!-- Logo -->
-        <!-- ============================================================== -->
+
         <div class="navbar-header">
-            <a class="navbar-brand" [routerLink]="['/pagina-web']">
+            <a class="navbar-brand" href="/pagina-web">
                 <b>
-                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-                            <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
-                        </b><span class="light-logo">admin 360</span> </a>
+                    </b><span>
+                     <img src="../assets/A360_IDENTIDAD FINAL-25.png" style="max-width:120px;"  alt="homepage" class="dark-logo" />
+                     <img src="../assets/A360_IDENTIDAD FINAL-25.png" style="max-width:120px;"  class="light-logo" alt="homepage" />
+                    </span> </a>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Logo -->
-        <!-- ============================================================== -->
+
         <div class="navbar-collapse">
-            <!-- ============================================================== -->
-            <!-- toggle and nav items -->
-            <!-- ============================================================== -->
+
             <ul class="navbar-nav mr-auto">
-                <!-- This is  -->
                 <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                 <li class="nav-item hidden-sm-down"><span></span></li>
             </ul>
-            <!-- ============================================================== -->
-            <!-- User profile and search -->
-            <!-- ============================================================== -->
+
             <ul class="navbar-nav my-lg-0">
 
-
-                <!-- ============================================================== -->
-                <!-- Profile -->
-                <!-- ============================================================== -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/descarga.png" alt="user" class="profile-pic" /></a>
                     <div class="dropdown-menu dropdown-menu-right animated flipInY">
@@ -44,7 +32,7 @@
                             <li role="separator" class="divider"></li>
                             <li><a [routerLink]="['/perfil']"><i class="ti-user"></i> {{usuario.nombreUsuario}}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a (click)="logout()"><i class="fa fa-power-off"></i> Logout</a></li>
+                            <li><a (click)="logout()"><i class="fa fa-power-off"></i> Cerrar Sesión</a></li>
                         </ul>
                     </div>
                 </li>

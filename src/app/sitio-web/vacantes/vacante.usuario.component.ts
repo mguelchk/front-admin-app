@@ -30,6 +30,7 @@ export class VacanteUsuarioComponent implements OnInit {
   p: number = 1;
   AREA: number = 1;
   ESTADO: number = 2;
+  areaSeleccionada : boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -54,10 +55,12 @@ export class VacanteUsuarioComponent implements OnInit {
   }
 
   selectEvent(item, tipo: number) {
-
+    
+    console.log("seleccionado");
     switch (tipo) {
       case this.AREA:
         this.setArea(item);
+        this.areaSeleccionada = true;
         break;
       case this.ESTADO:
         this.setEstado(item);
@@ -68,12 +71,14 @@ export class VacanteUsuarioComponent implements OnInit {
   }
 
   onChangeSearch(val: string) {
+    this.areaSeleccionada = false;
     if (val.length > 2) {
       this.buscarAreas(val);
     }
   }
 
   onCleared(e, tipo: number) {
+    console.log("oncler");
     switch (tipo) {
       case this.AREA:
         this.removeArea();

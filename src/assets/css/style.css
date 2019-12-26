@@ -8217,7 +8217,7 @@ File: scss
 }
 
 .sticky-wrapper.is-sticky .site-navbar {
-    background: #ef5350;
+    /* background: #ef5350; */
     -webkit-box-shadow: 4px 0 20px -5px rgba(0, 0, 0, 0.2);
     box-shadow: 4px 0 20px -5px rgba(0, 0, 0, 0.2);
 }
@@ -8287,4 +8287,38 @@ File: scss
 [type="checkbox"].filled-in:checked.chk-col-light-admin-red+label:after {
     border: 2px solid #ef5350;
     background-color: #ef5350;
+}
+
+
+/*estilo personalizados*/
+
+.btn-custom-blue,
+.btn-custom-blue.disabled {
+    background: #006298;
+    border: 1px solid #006298;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);
+    box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);
+    -webkit-transition: 0.2s ease-in;
+    -o-transition: 0.2s ease-in;
+    transition: 0.2s ease-in;
+}
+
+.btn-custom-blue:hover,
+.btn-custom-blue.disabled:hover {
+    background: #006298;
+    -webkit-box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
+    box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
+    border: 1px solid #006298;
+}
+
+.btn-custom-blue.active,
+.btn-custom-blue:active,
+.btn-custom-blue:focus,
+.btn-custom-blue.disabled.active,
+.btn-custom-blue.disabled:active,
+.btn-custom-blue.disabled:focus {
+    background: #e6294b;
+    -webkit-box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
+    box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
+    border-color: transparent;
 }
